@@ -1,5 +1,5 @@
 {
-    "name": "matelink/api-reference",
+    "name": "suvo-ambalait/apiple",
     "description": "A clean, Postman-style API reference page for Laravel projects. Reads any OpenAPI JSON (l5-swagger, Scribe, ...) and adds a collapsible menu, Try it, login helper, code snippets and Postman export.",
     "keywords": ["laravel", "api", "documentation", "openapi", "swagger", "postman"],
     "type": "library",
@@ -18,13 +18,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Matelink\\ApiReference\\": "src/"
+            "Suvo\\Apiple\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Matelink\\ApiReference\\ApiReferenceServiceProvider"
+                "Suvo\\Apiple\\ApiReferenceServiceProvider"
             ]
         }
     },

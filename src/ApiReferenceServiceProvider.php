@@ -1,11 +1,11 @@
 <?php
 
-namespace Matelink\ApiReference;
+namespace Suvo\Apiple;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Matelink\ApiReference\Console\InstallCommand;
-use Matelink\ApiReference\Http\Controllers\ApiReferenceController;
+use Suvo\Apiple\Console\InstallCommand;
+use Suvo\Apiple\Http\Controllers\ApiReferenceController;
 
 /**
  * Registers the API reference page.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Matelink\ApiReference\Console;
+namespace Suvo\Apiple\Console;
 
 use Illuminate\Console\Command;
 

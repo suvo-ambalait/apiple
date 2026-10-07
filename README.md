@@ -25,18 +25,18 @@ git init
 git add .
 git commit -m "API reference package"
 git branch -M main
-git remote add origin git@github.com:YOUR-NAME/YOUR-REPO.git   # create an empty PRIVATE repo first
+git remote add origin git@github.com:suvo-ambalait/apiple.git   # create an empty PRIVATE repo first
 git push -u origin main
 git tag v1.0.0 && git push origin v1.0.0
 ```
 
-The package name is `matelink/api-reference` (see `composer.json`). You can rename it, for example to `yourname/api-reference`; if you do, also update the `require` command below. The PHP namespace does not have to change.
+The package name is `suvo-ambalait/apiple` (see `composer.json`). You can rename it, for example to `yourname/another-name`; if you do, also update the `require` command below. The PHP namespace does not have to change.
 
 ## 2. Install it in any Laravel project
 
 ```bash
-composer config repositories.api-reference vcs git@github.com:YOUR-NAME/YOUR-REPO.git
-composer require matelink/api-reference
+composer config repositories.apiple vcs https://github.com/suvo-ambalait/apiple.git
+composer require suvo-ambalait/apiple
 php artisan api-reference:install
 ```
 
@@ -111,7 +111,7 @@ or simply leave it off in production (the default).
 Change the package, commit, tag a new version, push. In each project:
 
 ```bash
-composer update matelink/api-reference
+composer update suvo-ambalait/apiple
 php artisan api-reference:install --force
 ```
 

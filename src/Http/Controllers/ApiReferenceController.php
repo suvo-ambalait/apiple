@@ -1,6 +1,6 @@
 <?php
 
-namespace Matelink\ApiReference\Http\Controllers;
+namespace Suvo\Apiple\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
