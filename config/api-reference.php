@@ -67,12 +67,12 @@ return [
     | user_path       where the user object is in the response (for the name)
     */
     'login' => [
-        'endpoint' => 'v1/auth/login',
-        'username_field' => 'username',
+        'endpoint' => 'api/login',
+        'username_field' => 'email',
         'password_field' => 'password',
-        'username_label' => 'Username or email',
-        'token_path' => 'data.token',
-        'user_path' => 'data.user',
+        'username_label' => 'Email',
+        'token_path' => 'access_token',
+        'user_path' => 'user',
     ],
 
 ];

@@ -10,7 +10,11 @@
         "illuminate/console": "^11.0|^12.0",
         "illuminate/http": "^11.0|^12.0",
         "illuminate/routing": "^11.0|^12.0",
-        "illuminate/view": "^11.0|^12.0"
+        "illuminate/view": "^11.0|^12.0",
+        "illuminate/contracts": "^11.0|^12.0"
+    },
+    "suggest": {
+        "darkaonline/l5-swagger": "Generates the OpenAPI JSON this page reads from Swagger annotations."
     },
     "autoload": {
         "psr-4": {

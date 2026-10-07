@@ -24,7 +24,7 @@ class ApiReferenceController extends Controller
 
         // Everything the browser code needs, passed as window.API_REFERENCE.
         $options = [
-            'specUrl' => route('api-reference.spec'),
+            'specUrl' => route('api-reference.spec', [], false),
             'title' => $title,
             'subtitle' => config('api-reference.subtitle'),
             'storagePrefix' => 'apiref.' . Str::slug($title),

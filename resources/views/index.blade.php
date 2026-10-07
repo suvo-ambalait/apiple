@@ -25,7 +25,7 @@
         <aside id="sidebar"><nav id="nav"></nav></aside>
         <main id="content"><p class="muted">Loading API reference…</p></main>
     </div>
-    {{-- Options for the browser code. The spec URL is absolute, built from the current request, so it stays same-origin. --}}
+    {{-- Options for the browser code. The spec URL is relative, so it stays same-origin even if APP_URL is wrong. --}}
     <script>window.API_REFERENCE = {{ \Illuminate\Support\Js::from($options) }};</script>
     @foreach (['core', 'snippets', 'export', 'tryit', 'ui'] as $script)
         <script src="{{ asset('vendor/api-reference/' . $script . '.js') }}?v={{ $version }}"></script>

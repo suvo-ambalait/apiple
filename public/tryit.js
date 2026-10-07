@@ -535,7 +535,7 @@
     /* ---- Authentication: login helper (POST {baseUrl}/{login.endpoint}) ----
        Configurable through window.API_REFERENCE.login (see config/api-reference.php). */
     var LOGIN = (window.API_REFERENCE && window.API_REFERENCE.login) || {};
-    var L_ENDPOINT = String(LOGIN.endpoint || 'v1/auth/login').replace(/^\/+/, '');
+    var L_ENDPOINT = String(LOGIN.endpoint || 'api/login').replace(/^\/+/, '');
     var L_USER = LOGIN.username_field || 'username';
     var L_PASS = LOGIN.password_field || 'password';
     var L_LABEL = LOGIN.username_label || 'Username or email';
