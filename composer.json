@@ -3,7 +3,7 @@
     "description": "A clean, Postman-style API reference page for Laravel projects. Reads any OpenAPI JSON (l5-swagger, Scribe, ...) and adds a collapsible menu, Try it, login helper, code snippets and Postman export.",
     "keywords": ["laravel", "api", "documentation", "openapi", "swagger", "postman"],
     "type": "library",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "php": "^8.2",
         "illuminate/support": "^11.0|^12.0",

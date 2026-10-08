@@ -16,35 +16,33 @@ Requires PHP 8.2+ and Laravel 11 or 12.
 
 ---
 
-## 1. Put this folder on GitHub (once)
+## 1. Install it in any Laravel project
 
-This folder is a complete Composer package. From inside it:
-
-```bash
-git init
-git add .
-git commit -m "API reference package"
-git branch -M main
-git remote add origin git@github.com:suvo-ambalait/apiple.git   # create an empty PRIVATE repo first
-git push -u origin main
-git tag v1.0.0 && git push origin v1.0.0
-```
-
-The package name is `suvo-ambalait/apiple` (see `composer.json`). You can rename it, for example to `yourname/another-name`; if you do, also update the `require` command below. The PHP namespace does not have to change.
-
-## 2. Install it in any Laravel project
+Run these in the **root folder of your Laravel project** (the one that contains `artisan`):
 
 ```bash
-composer config repositories.apiple vcs https://github.com/suvo-ambalait/apiple.git
 composer require suvo-ambalait/apiple
 php artisan api-reference:install
 ```
 
-(For a private GitHub repo Composer uses your SSH key, or a token set with `composer config github-oauth.github.com YOUR_TOKEN`.)
+If Composer cannot find the package, add the GitHub repository first:
 
-Open **`/api-docs`** in your browser. Done.
+```bash
+composer config repositories.apiple vcs https://github.com/suvo-ambalait/apiple.git
+```
 
 `api-reference:install` copies the browser files to `public/vendor/api-reference/` and the config to `config/api-reference.php`.
+
+## 2. Generate the OpenAPI file and open the page
+
+The page needs an OpenAPI JSON file (see section 3). With l5-swagger:
+
+```bash
+php artisan l5-swagger:generate
+php artisan serve
+```
+
+Open **`/api-docs`** in your browser (for example `http://127.0.0.1:8000/api-docs`). Done.
 
 ## 3. Where does the documentation come from?
 
@@ -108,7 +106,7 @@ or simply leave it off in production (the default).
 
 ## 5. Updating
 
-Change the package, commit, tag a new version, push. In each project:
+In each project:
 
 ```bash
 composer update suvo-ambalait/apiple
@@ -146,6 +144,12 @@ public/                                CSS, JavaScript and fonts (copied to publ
 ## Troubleshooting
 
 - **404 on `/api-docs`**: the page is disabled (`API_REFERENCE_ENABLED=false` or production) or `php artisan route:clear` / `config:clear` is needed.
+- **"Could not load the API spec (HTTP 404)"**: the OpenAPI file does not exist yet. Run `php artisan l5-swagger:generate`, or set `API_REFERENCE_SPEC`.
+- **`l5-swagger:generate` says a `$ref` like `#/components/schemas/Error` was not found** (swagger-php 6): shared schemas, responses and parameters must not be stacked on the same class. Put `#[OA\Schema]` attributes on one class and `#[OA\Response]` / `#[OA\Parameter]` on another.
 - **Page loads but says the spec was not found**: the OpenAPI file is missing. Generate it (`php artisan l5-swagger:generate`) or set `API_REFERENCE_SPEC`.
 - **Unstyled page / 404 on assets**: run `php artisan api-reference:install`.
 - **Try it fails with "Request failed"**: open Settings and check the Base URL (it defaults to the first server in the OpenAPI file). Calls to a different domain need CORS enabled on your API.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
